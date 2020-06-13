@@ -6,8 +6,8 @@ In light of the current global pandemic, we want to support the advancement of m
 The intention of our project is to have information about COVID-19 in one comprehensive place, so whomever needs the information can have it readily available.
 
 Using reputable sources, like the CDC and Johns Hopkins, we gathered US statistical data on COVID-19: 
-*Confirmed cases and deaths
-*Health factors like gender, smoking, and obesity
+* Confirmed cases and deaths
+* Health factors like gender, smoking, and obesity
 
 The information is displayed on a US map with options to select different states or different medical factors. This allows a user to view and download the information easily. 
 
