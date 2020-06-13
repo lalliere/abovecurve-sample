@@ -244,8 +244,8 @@ class App extends Component {
   render() {
     return (
       <>
-        <WelcomePage />
         <Navbar />
+        <WelcomePage />
         <Grid container>
           <Grid item>
             <SmokingChart
