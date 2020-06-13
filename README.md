@@ -1,7 +1,9 @@
 # Above Curve - UNH Coding Bootcamp Project #3
 
 ## Project Description:
+In light of the current global pandemic, we want to support the advancement of medical research by standardizing a variety of public data sets for researchers to rapidly gain insights backed by reputable and cited sources.
 
+This application is a visualization tool that compares deaths in the US by sex and by age groups as well as referencing current obesity and smoking levels in the US by state.
 ## 
 
 ## Built With:
