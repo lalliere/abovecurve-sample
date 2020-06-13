@@ -7,6 +7,9 @@ import axios from "axios";
 import Grid from "@material-ui/core/Grid";
 import SmokingChart from "./visualization/SmokingChart";
 
+import Footer from "./components/footer"
+import WelcomePage from "./components/welcomePage"
+
 // NOTE: "UA-164204874-2" Is the tracking ID for Above Curve lcoalhost
 // open this app in incognito for it to register in the GA dashboard
 // when testing locally.
@@ -157,7 +160,7 @@ class App extends Component {
     data
       .filter(
         (elem) =>
-          elem.locationabbr == state &&
+          elem.locationabbr === state &&
           (elem.measuredesc ===
             "Percent of Former Smokers Among Ever Smokers" ||
             elem.measuredesc === "Current Use" ||
@@ -239,6 +242,7 @@ class App extends Component {
   render() {
     return (
       <>
+        <WelcomePage />
         <Grid container>
           <Grid item>
             <SmokingChart
@@ -253,6 +257,7 @@ class App extends Component {
             <DeathBySexState />
           </Grid>
         </Grid>
+        <Footer />
       </>
     );
   }
