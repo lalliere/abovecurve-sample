@@ -2,35 +2,34 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
+import Typography from '@material-ui/core/Typography';
 import styles from "./landing.module.scss";
+
+
 class Landing extends Component {
   render() {
     return (
       //<div className="container valign-wrapper">
-      <Grid container direction="row" justify="center" alignItems="center">
-        <div className="row">
-          <div className="col s12 center-align">
-            <h1>Welcome to Above Curve</h1>
-            <p>Please either log in or register an account.</p>
-            <br />
-            <div className="col s6">
-              <Button>
-                <Link to="/register" className={styles.Button}>
-                  Register
-                </Link>
-              </Button>
-            </div>
-            <div className="col s6">
-              <Button>
-                <Link to="/login" className={styles.Button}>
-                  Log In
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </div>
+      <Grid container direction="row" justify="center" alignItems="center" className={styles.Landing}>
+        <Grid item xs={12} align="center">
+          <Typography className={styles.title} variant="h2" component="h1" gutterBottom>Welcome to Above Curve</Typography>
+          <Typography className={styles.subtitle} variant="h5" component="h5" gutterBottom>Please either log in or register an account.</Typography>
+        </Grid>
+        <Grid item xs={6} sm={4} md={3} lg={2} align="center">
+          <Button variant="contained" grouped>
+            <Link to="/login" className={styles.button}>
+              Log In
+            </Link>
+          </Button>
+        </Grid>
+        <Grid item xs={6} sm={4} md={3} lg={2} align="center">
+          <Button variant="contained" >
+            <Link to="/register" className={styles.button}>
+              Register
+            </Link>
+          </Button>
+        </Grid>
       </Grid>
-      //</div>
     );
   }
 }
