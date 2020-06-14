@@ -15,6 +15,8 @@ import Register from "./components/register";
 import Login from "./components/login";
 import PrivateRoute from "./components/privateRoute";
 import Dashboard from "./components/dashboard";
+import Navbar from "./components/navbar";
+
 
 // NOTE: "UA-164204874-2" Is the tracking ID for Above Curve lcoalhost
 // open this app in incognito for it to register in the GA dashboard
@@ -268,6 +270,21 @@ class App extends Component {
               />
               <DeathBySexState />
             </Grid>
+      <>
+        <Navbar />
+        <WelcomePage />
+        <Grid container>
+          <Grid item>
+            <SmokingChart
+              pieChartData={this.state.smokingData}
+              selectedState={this.state.selectedState}
+            />
+            <ObesityChart chartData={this.state.obesityData} />
+            <ChartWrapper
+              obesityChartData={this.state.singleObesityChartData}
+              setMasterSelectState={this.masterSelectState}
+            />
+            <DeathBySexState />
           </Grid>
           <Footer />
         </>
