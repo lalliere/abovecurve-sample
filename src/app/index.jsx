@@ -6,9 +6,15 @@ import ObesityChart from "./visualization/ObesityChart";
 import axios from "axios";
 import Grid from "@material-ui/core/Grid";
 import SmokingChart from "./visualization/SmokingChart";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import Footer from "./components/footer"
-import WelcomePage from "./components/welcomePage"
+import Footer from "./components/footer";
+import WelcomePage from "./components/welcomePage";
+import Landing from "./components/landing";
+import Register from "./components/register";
+import Login from "./components/login";
+import PrivateRoute from "./components/privateRoute";
+import Dashboard from "./components/dashboard";
 
 // NOTE: "UA-164204874-2" Is the tracking ID for Above Curve lcoalhost
 // open this app in incognito for it to register in the GA dashboard
@@ -55,7 +61,6 @@ class App extends Component {
   masterSelectState = (state) => {
     const obesityData = this.state.allObesityData[state];
     this.extractSmokingData(state, this.state.masterSmokingArray);
-
 
     const singleObesityChartData = this.getSkeletonObesityChartData();
     singleObesityChartData.labels.push(obesityData.stateName);
@@ -241,24 +246,32 @@ class App extends Component {
 
   render() {
     return (
-      <>
-        <WelcomePage />
-        <Grid container>
-          <Grid item>
-            <SmokingChart
-              pieChartData={this.state.smokingData}
-              selectedState={this.state.selectedState}
-            />
-            <ObesityChart chartData={this.state.obesityData} />
-            <ChartWrapper
-              obesityChartData={this.state.singleObesityChartData}
-              setMasterSelectState={this.masterSelectState}
-            />
-            <DeathBySexState />
+      <Router>
+        <>
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/register" component={Register} />
+          <Route exact path="/login" component={Login} />
+          <Switch>
+            <PrivateRoute exact path="/dashboard" component={Dashboard} />
+          </Switch>
+          <WelcomePage />
+          <Grid container>
+            <Grid item>
+              <SmokingChart
+                pieChartData={this.state.smokingData}
+                selectedState={this.state.selectedState}
+              />
+              <ObesityChart chartData={this.state.obesityData} />
+              <ChartWrapper
+                obesityChartData={this.state.singleObesityChartData}
+                setMasterSelectState={this.masterSelectState}
+              />
+              <DeathBySexState />
+            </Grid>
           </Grid>
-        </Grid>
-        <Footer />
-      </>
+          <Footer />
+        </>
+      </Router>
     );
   }
 }
