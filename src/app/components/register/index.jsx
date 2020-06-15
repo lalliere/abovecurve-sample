@@ -184,7 +184,7 @@ class Register extends Component {
             >
               Sign up
             </Button>
-            <Grid container justify="flex-end">
+            <Grid container justify="flex-end" className={styles.spacing}>
               <Grid item>
                 <Link href="/login" variant="body2" className={styles.linkText}>
                   Already have an account? Sign in

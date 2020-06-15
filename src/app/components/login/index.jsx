@@ -57,7 +57,7 @@ class Login extends Component {
             <Avatar className={styles.avatar}>
               <LockOutlinedIcon />
             </Avatar>
-            <Typography component="h1" variant="h4">
+            <Typography component="h1" variant="h4" className={styles.title}>
               Sign in
             </Typography>
             <form className={styles.form} noValidate onSubmit={this.onSubmit}>
@@ -120,7 +120,7 @@ class Login extends Component {
               >
                 Sign In
               </Button>
-              <Grid container>
+              <Grid container className={styles.spacing}>
                 <Grid item xs>
                   <Link href="#" variant="body2" className={styles.linkText}>
                     Forgot password?
