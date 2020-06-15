@@ -317,6 +317,7 @@ renderPage = () => {
                 setMasterSelectState={this.masterSelectState}
               />
               <DeathBySexState /> */}
+            </Grid>
           </Grid>
           <Footer />
         </>
