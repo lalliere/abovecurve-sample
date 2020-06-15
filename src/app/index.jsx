@@ -326,6 +326,7 @@ class App extends Component {
             <WelcomePage cardClickHandler={this.handleViewDataCardClick} />
           )}
         />
+
         <Switch>
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
         </Switch>
