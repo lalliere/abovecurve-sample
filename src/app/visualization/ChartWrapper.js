@@ -150,8 +150,8 @@ export default class ChartWrapper extends React.Component {
         </Grid>
 
         <Grid containter>
-          <Grid item xs={4}>
-            <ObesityChart chartData={this.state.singleObesityChartData} />
+          <Grid item xs={12}>
+            <ObesityChart chartData={this.props.obesityChartData} />
           </Grid>
         </Grid>
         <SmokingChart

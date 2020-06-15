@@ -289,6 +289,7 @@ class App extends Component {
                 setMasterSelectState={this.masterSelectState}
                 pieChartData={this.state.smokingData}
                 selectedState={this.state.selectedState}
+                obesityChartData={this.state.singleObesityChartData}
               />
             </Grid>
             {/* <Grid item xs={6}>
