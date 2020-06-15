@@ -253,11 +253,10 @@ class App extends Component {
           <Route exact path="/" component={Landing} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/welcompage" component={WelcomePage} />
+          <Route exact path="/welcomepage" component={WelcomePage} />
           <Switch>
             <PrivateRoute exact path="/dashboard" component={Dashboard} />
           </Switch>
-          <WelcomePage />
           <Grid container>
             <Grid item>
               <SmokingChart
