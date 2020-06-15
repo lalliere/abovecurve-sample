@@ -22,7 +22,7 @@
   }
 
   button {
-    background-color: grey;
+    background-color: gray;
     margin-bottom: 10px;
   }
 
@@ -30,11 +30,16 @@
     margin-right: 30px;
     width: 100%;
     align-self: center;
+    background-color: gray;
   }
 
   .linkText {
-    color: grey;
+    color: gray;
   }
   
+  .spacing {
+    margin-top: 10px;
+  }
+
 }
 
