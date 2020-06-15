@@ -274,13 +274,13 @@ class App extends Component {
               marginBottom: "20px"
             }}
           >
-            <Grid item lg={8} spacing={5}>
+            <Grid item xs={8} spacing={5}>
               <DeathBySexState />
             </Grid>
-            <Grid item lg={8} spacing={5}>
+            <Grid item xs={8} spacing={5}>
               <ObesityChart chartData={this.state.obesityData} />
             </Grid>
-            <Grid item lg={8} spacing={3}>
+            <Grid item xs={8} spacing={3}>
               <SmokingChart
                 pieChartData={this.state.smokingData}
                 selectedState={this.state.selectedState}
