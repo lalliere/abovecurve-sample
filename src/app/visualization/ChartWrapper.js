@@ -6,6 +6,7 @@ import ObesityChart from "./ObesityChart";
 import DeathByAgeGroup from "./DeathByAgeGroup";
 import Radio from "@material-ui/core/Radio";
 import SmokingChart from "./SmokingChart";
+import Title from "../components/title/index";
 
 export default class ChartWrapper extends React.Component {
   constructor(props) {
@@ -75,9 +76,11 @@ export default class ChartWrapper extends React.Component {
 
   render() {
     return (
-      <Grid>
+      <>
+        <Title align="center">Select a State</Title>
         <Grid container alignItems={"center"}>
-          <Grid item xs={1}>
+          <Grid item lg={1}></Grid>
+          <Grid item alignContent={"flexEnd"} lg={3}>
             <form>
               <div className="form-check">
                 <label>
@@ -122,7 +125,7 @@ export default class ChartWrapper extends React.Component {
               </div>
             </form>
           </Grid>
-          <Grid item xs={3}>
+          <Grid item lg={3}>
             {this.state.selectedOption === "option1" ? (
               <GeoChart
                 selectState={this.masterSelectState}
@@ -147,22 +150,24 @@ export default class ChartWrapper extends React.Component {
               />
             ) : null}
           </Grid>
-          <Grid item xs={4}>
-            <SmokingChart
-              pieChartData={this.props.pieChartData}
-              selectedState={this.props.selectedState}
-            />
-          </Grid>
         </Grid>
 
-        <Grid item xs={4}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "baseline",
+            maxWidth: "38%",
+            marginBottom: "20px",
+          }}
+        >
+          <ObesityChart chartData={this.props.obesityChartData} />
+          <SmokingChart
+            pieChartData={this.props.pieChartData}
+            selectedState={this.props.selectedState}
+          />
           <DeathByAgeGroup selectedLocation={this.state.selectedLocation} />
-          {/* <ObesityChart chartData={this.props.obesityChartData} /> */}
-        </Grid>
-        {/* <Grid item xs={4}>
-            <ObesityChart chartData={this.state.singleObesityChartData} />
-          </Grid> */}
-      </Grid>
+        </div>
+      </>
     );
   }
 }
