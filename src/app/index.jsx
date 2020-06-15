@@ -35,7 +35,7 @@ class App extends Component {
     singleObesityChartData: this.getSkeletonObesityChartData(),
     masterObesityArray: [],
     masterSmokingArray: [],
-    currentPage: "StateView",
+    currentPage: "USView",
 
     selectedObesityState: "",
     obesityData: this.getSkeletonObesityChartData(),
@@ -255,72 +255,79 @@ class App extends Component {
   //   return
   // }
 
-renderPage = () => {
-  if (this.state.currentPage === "USView") {
-    return (
-      <Grid container spacing={3}>
-        <Grid item xs={12} spacing={5}>
-          <DeathBySexState />
-        </Grid>
-        <Grid item xs={12} spacing={5}>
-          <ObesityChart chartData={this.state.obesityData} />
-        </Grid>
-        <Grid item xs={12} spacing={3}>
-          <SmokingChart
-            pieChartData={this.state.smokingData}
-            selectedState={this.state.selectedState}
-          />
-        </Grid>
-      </Grid>)
-  } else if (this.state.currentPage === "StateView") {
-    return (          
-    <Grid item>
-      <ChartWrapper
-        // obesityChartData={this.state.singleObesityChartData}
-        setMasterSelectState={this.masterSelectState}
-      />
-    </Grid>)
-    
-  } else {
-    return "";
+  handleViewDataCardClick = (e) => {
+    const currentPage = e.target.dataset.view;
+    this.setState({ currentPage})
+
   }
-}
 
-
-
-
-
+  renderPage = () => {
+    if (this.state.currentPage === "USView") {
+      return (
+        <Grid container spacing={3}>
+          <Grid item xs={12} spacing={5}>
+            <DeathBySexState />
+          </Grid>
+          <Grid item xs={12} spacing={5}>
+            <ObesityChart chartData={this.state.obesityData} />
+          </Grid>
+          <Grid item xs={12} spacing={3}>
+            <SmokingChart
+              pieChartData={this.state.smokingData}
+              selectedState={this.state.selectedState}
+            />
+          </Grid>
+        </Grid>
+      );
+    } else if (this.state.currentPage === "StateView") {
+      return (
+        <Grid container>
+          <Grid item>
+            <ChartWrapper
+              setMasterSelectState={this.masterSelectState}
+              pieChartData={this.state.smokingData}
+              selectedState={this.state.selectedState}
+            />
+          </Grid>
+          {/* <Grid item xs={6}>
+            <ObesityChart chartData={this.state.singleObesityChartData} />
+          </Grid> */}
+        </Grid>
+      );
+    } else {
+      return "";
+    }
+  };
 
   render() {
     return (
       <Router>
-        <>
-          <Navbar />
-          <Route exact path="/" component={Landing} />
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/welcomepage" component={WelcomePage} />
-          <Switch>
-            <PrivateRoute exact path="/dashboard" component={Dashboard} />
-          </Switch>
-          {/* <this.USLandingPage isLoggedIn={true} /> */}
-          {this.renderPage()}
-          <Grid container>
-            <Grid item>
-              {/* <SmokingChart
-                pieChartData={this.state.smokingData}
-                selectedState={this.state.selectedState}
-              />
-              <ObesityChart chartData={this.state.obesityData} />
-              <ChartWrapper
-                obesityChartData={this.state.singleObesityChartData}
-                setMasterSelectState={this.masterSelectState}
-              />
-              <DeathBySexState /> */}
-            </Grid>
+        <Navbar />
+        <Route exact path="/" component={Landing} />
+        <Route exact path="/register" component={Register} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/welcomepage" component={WelcomePage} />
+        <Switch>
+          <PrivateRoute exact path="/dashboard" component={Dashboard} />
+        </Switch>
+        <WelcomePage cardClickHandler={this.handleViewDataCardClick} />
+        {/* <this.USLandingPage isLoggedIn={true} /> */}
+        {this.renderPage()}
+        <Grid container>
+          <Grid item>
+            {/* <SmokingChart
+              pieChartData={this.state.smokingData}
+              selectedState={this.state.selectedState}
+            />
+            <ObesityChart chartData={this.state.obesityData} />
+            <ChartWrapper
+              obesityChartData={this.state.singleObesityChartData}
+              setMasterSelectState={this.masterSelectState}
+            />
+            <DeathBySexState /> */}
+           </Grid>
           </Grid>
           <Footer />
-        </>
       </Router>
     );
   }
