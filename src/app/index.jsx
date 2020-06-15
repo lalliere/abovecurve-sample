@@ -264,14 +264,23 @@ class App extends Component {
     if (this.state.currentPage === "USView") {
       return (
         <>
-          <Grid container spacing={3}>
-            <Grid item xs={12} spacing={5}>
+          <Grid
+            container
+            spacing={3}
+            margin="auto"
+            alignItems="center"
+            justify="center"
+            style={{
+              marginBottom: "20px"
+            }}
+          >
+            <Grid item xs={8} spacing={5}>
               <DeathBySexState />
             </Grid>
-            <Grid item xs={12} spacing={5}>
+            <Grid item xs={8} spacing={5}>
               <ObesityChart chartData={this.state.obesityData} />
             </Grid>
-            <Grid item xs={12} spacing={3}>
+            <Grid item xs={8} spacing={3}>
               <SmokingChart
                 pieChartData={this.state.smokingData}
                 selectedState={this.state.selectedState}
