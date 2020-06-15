@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/abovecurve-sample/static/css/main.35b4be56.chunk.css",
+    "main.js": "/abovecurve-sample/static/js/main.150d15eb.chunk.js",
+    "main.js.map": "/abovecurve-sample/static/js/main.150d15eb.chunk.js.map",
+    "runtime-main.js": "/abovecurve-sample/static/js/runtime-main.d26b50d2.js",
+    "runtime-main.js.map": "/abovecurve-sample/static/js/runtime-main.d26b50d2.js.map",
+    "static/js/2.1d2e91c1.chunk.js": "/abovecurve-sample/static/js/2.1d2e91c1.chunk.js",
+    "static/js/2.1d2e91c1.chunk.js.map": "/abovecurve-sample/static/js/2.1d2e91c1.chunk.js.map",
+    "index.html": "/abovecurve-sample/index.html",
+    "precache-manifest.63d87f404aaeecd36683426d4e85a1dc.js": "/abovecurve-sample/precache-manifest.63d87f404aaeecd36683426d4e85a1dc.js",
+    "service-worker.js": "/abovecurve-sample/service-worker.js",
+    "static/css/main.35b4be56.chunk.css.map": "/abovecurve-sample/static/css/main.35b4be56.chunk.css.map",
+    "static/js/2.1d2e91c1.chunk.js.LICENSE.txt": "/abovecurve-sample/static/js/2.1d2e91c1.chunk.js.LICENSE.txt",
+    "static/media/aboveCurve.png": "/abovecurve-sample/static/media/aboveCurve.92950c75.png",
+    "static/media/viewbyState.png": "/abovecurve-sample/static/media/viewbyState.1cbab346.png",
+    "static/media/viewbyUS.png": "/abovecurve-sample/static/media/viewbyUS.f6ba13cd.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d26b50d2.js",
+    "static/js/2.1d2e91c1.chunk.js",
+    "static/css/main.35b4be56.chunk.css",
+    "static/js/main.150d15eb.chunk.js"
+  ]
+}
