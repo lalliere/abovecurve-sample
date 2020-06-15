@@ -93,6 +93,7 @@ export default function NavBar() {
                                     <Typography  variant="h6">
                                         <MenuItem className={classes.menuList} onClick={handleClose} component={Link} to="/welcomepage">Home</MenuItem>
                                         <MenuItem className={classes.menuList} onClick={handleClose} component={Link} to="/about">About</MenuItem>
+                                        <MenuItem className={classes.menuList} onClick={handleClose} component={Link} to="/sources">Data Sources</MenuItem>
                                         <MenuItem className={classes.menuList} onClick={handleClose} component={Link} to="/saved">My Saved Reports</MenuItem>
                                         <MenuItem className={classes.menuList} onClick={handleClose} component={Link} to="/logout">Logout</MenuItem>
                                     </Typography>
