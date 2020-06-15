@@ -6,6 +6,7 @@ import ObesityChart from "./ObesityChart";
 import DeathByAgeGroup from "./DeathByAgeGroup";
 import Radio from "@material-ui/core/Radio";
 import SmokingChart from "./SmokingChart";
+import Title from '../components/title/index';
 
 export default class ChartWrapper extends React.Component {
   constructor(props) {
@@ -76,6 +77,7 @@ export default class ChartWrapper extends React.Component {
   render() {
     return (
       <>
+      <Title align="center">Select a State</Title>
         <Grid container alignItems={"center"}>
           <Grid item lg={3}>
             <form>
@@ -150,7 +152,7 @@ export default class ChartWrapper extends React.Component {
         </Grid>
 
         <div
-          style={{ display: "flex", alignItems: "baseline", maxWidth: "38%" }}
+          style={{ display: "flex", alignItems: "baseline", maxWidth: "38%", marginBottom: "20px" }}
         >
           <ObesityChart chartData={this.props.obesityChartData} />
           <SmokingChart
