@@ -57,13 +57,13 @@ class Register extends Component {
   render() {
     const { errors } = this.state;
     return (
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="xs" className={styles.Register}>
         <CssBaseline />
         <div className={styles.paper}>
           <Avatar className={styles.avatar}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h4" className={styles.title}>
             Sign up
           </Typography>
           <form className={styles.form} noValidate onSubmit={this.onSubmit}>
@@ -184,9 +184,9 @@ class Register extends Component {
             >
               Sign up
             </Button>
-            <Grid container justify="flex-end">
+            <Grid container justify="flex-end" className={styles.spacing}>
               <Grid item>
-                <Link href="/login" variant="body2">
+                <Link href="/login" variant="body2" className={styles.linkText}>
                   Already have an account? Sign in
                 </Link>
               </Grid>

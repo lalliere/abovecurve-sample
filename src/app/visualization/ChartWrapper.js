@@ -4,8 +4,9 @@ import axios from "axios";
 import Grid from "@material-ui/core/Grid";
 import ObesityChart from "./ObesityChart";
 import DeathByAgeGroup from "./DeathByAgeGroup";
-import Radio from '@material-ui/core/Radio';
-
+import Radio from "@material-ui/core/Radio";
+import SmokingChart from "./SmokingChart";
+import Title from "../components/title/index";
 
 export default class ChartWrapper extends React.Component {
   constructor(props) {
@@ -23,7 +24,7 @@ export default class ChartWrapper extends React.Component {
 
   handleOptionChange = (changeEvent) => {
     this.setState({ selectedOption: changeEvent.target.value }, () => {
-      console.log(this.state.selectedOption)
+      console.log(this.state.selectedOption);
     });
   };
 
@@ -76,8 +77,10 @@ export default class ChartWrapper extends React.Component {
   render() {
     return (
       <>
-        <Grid container spacing={3} alignItems={"center"}>
-          <Grid item xs={3} spacing={3}>
+        <Title align="center">Select a State</Title>
+        <Grid container alignItems="center">
+          <Grid item lg={1}></Grid>
+          <Grid item alignContent="flex-end" lg={3}>
             <form>
               <div className="form-check">
                 <label>
@@ -88,6 +91,7 @@ export default class ChartWrapper extends React.Component {
                     checked={this.state.selectedOption === "option1"}
                     onChange={this.handleOptionChange}
                     className="form-check-input"
+                    color="default"
                   />
                   Confirmed Cases
                 </label>
@@ -102,6 +106,7 @@ export default class ChartWrapper extends React.Component {
                     checked={this.state.selectedOption === "option2"}
                     onChange={this.handleOptionChange}
                     className="form-check-input"
+                    color="default"
                   />
                   Total Tests
                 </label>
@@ -116,13 +121,14 @@ export default class ChartWrapper extends React.Component {
                     checked={this.state.selectedOption === "option3"}
                     onChange={this.handleOptionChange}
                     className="form-check-input"
+                    color="default"
                   />
                   Total Deaths
                 </label>
               </div>
             </form>
           </Grid>
-          <Grid item xs={9}>
+          <Grid item lg={3}>
             {this.state.selectedOption === "option1" ? (
               <GeoChart
                 selectState={this.masterSelectState}
@@ -148,13 +154,24 @@ export default class ChartWrapper extends React.Component {
             ) : null}
           </Grid>
         </Grid>
-        <Grid item xs={4}>
+
+        <div
+          style={{
+            display: "flex",
+            alignItems: "flex-start",
+            maxWidth: "38%",
+            marginBottom: "80px",
+            marginTop: "60px",
+            marginLeft: "20px",
+          }}
+        >
+          <ObesityChart chartData={this.props.obesityChartData} />
+          <SmokingChart
+            pieChartData={this.props.pieChartData}
+            selectedState={this.props.selectedState}
+          />
           <DeathByAgeGroup selectedLocation={this.state.selectedLocation} />
-          {/* <ObesityChart chartData={this.props.obesityChartData} /> */}
-        </Grid>
-        <Grid item xs={4}>
-            <ObesityChart chartData={this.state.singleObesityChartData} />
-          </Grid>
+        </div>
       </>
     );
   }

@@ -1,8 +1,30 @@
 @import "../../../utils/styles/index.scss";
 
-.Button {
-  width: "140px";
-  border-radius: "3px";
-  letter-spacing: "1.5px";
-  text-decoration: none;
+
+.Landing {
+  align-items: center;
+  text-align: center;
+
+  .button {
+    width: 100px;
+    border-radius: 3px;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+  }
+  
+  .title {
+    text-align: center;
+    margin-top: 100px;
+  }
+
+  .subtitle {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+
 }
+
+
+
+

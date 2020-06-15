@@ -1,14 +1,45 @@
 @import "../../../utils/styles/index.scss";
 
-.paper {
-  display: "flex";
-  flex-direction: "column";
-  align-items: "center";
+.Register {
+
+  .paper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .avatar {
+    margin-top: 20px;
+    background-color: gray;
+  }
+
+  .title {
+    margin: 10px;
+  }
+
+  .form {
+    width: 100%; // Fix IE 11 issue.
+  }
+
+  button {
+    background-color: gray;
+    margin-bottom: 10px;
+  }
+
+  .submit {
+    margin-right: 30px;
+    width: 100%;
+    align-self: center;
+    background-color: gray;
+  }
+
+  .linkText {
+    color: gray;
+  }
+  
+  .spacing {
+    margin-top: 10px;
+  }
+
 }
-.avatar {
-}
-.form {
-  width: "100%"; // Fix IE 11 issue.
-}
-.submit {
-}
+
