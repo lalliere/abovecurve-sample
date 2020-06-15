@@ -54,7 +54,7 @@ export default function WelcomePage(props) {
       </Grid>
       <Grid container justify="center" spacing={4} className={classes.grid}>
         <Grid item auto>
-          <Card className={classes.card} data-testid="card-options">
+          <Card className={classes.card} data-testid="card-options" elevation={3}>
             <CardActionArea>
               <CardMedia
                 onClick={props.cardClickHandler}
@@ -72,7 +72,7 @@ export default function WelcomePage(props) {
           </Card>
         </Grid>
         <Grid item auto>
-          <Card className={classes.card} data-testid="card-options">
+          <Card className={classes.card} data-testid="card-options" elevation={3}>
             <CardActionArea>
               <CardMedia
                 onClick={props.cardClickHandler}

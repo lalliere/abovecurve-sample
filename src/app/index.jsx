@@ -306,6 +306,7 @@ class App extends Component {
         <Route exact path="/" component={Landing} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/welcomepage" component={WelcomePage} />
         <Switch>
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
         </Switch>
@@ -324,9 +325,9 @@ class App extends Component {
               setMasterSelectState={this.masterSelectState}
             />
             <DeathBySexState /> */}
+           </Grid>
           </Grid>
-        </Grid>
-        <Footer />
+          <Footer />
       </Router>
     );
   }

@@ -18,12 +18,6 @@ import Link from "@material-ui/core/Link";
 import styles from "./login.module.scss";
 import Image from "./aboveCurve.png";
 
-const bgimage = {
-  imageGrid: {
-    backgroundImage: `url(${Image})`,
-  },
-};
-
 class Login extends Component {
   constructor() {
     super();
@@ -33,16 +27,6 @@ class Login extends Component {
       errors: {},
     };
   }
-  // UNSAFE_componentWillReceiveProps(nextProps) {
-  //   if (nextProps.auth.isAuthenticated) {
-  //     this.props.history.push("/dashboard"); // push user to dashboard when they login
-  //   }
-  //   if (nextProps.errors) {
-  //     this.setState({
-  //       errors: nextProps.errors,
-  //     });
-  //   }
-  // }
 
   onChange = (e) => {
     this.setState({ [e.target.id]: e.target.value });
@@ -59,15 +43,21 @@ class Login extends Component {
   render() {
     const { errors } = this.state;
     return (
-      <Grid container component="main" className={styles.root}>
+      <Grid container component="main" className={styles.Login}>
         <CssBaseline />
-        <Grid item xs={false} sm={4} md={7} style={bgimage.imageGrid} />
+        <Grid item xs={false} sm={4} md={7}>
+          <img
+              src={Image}
+              alt="Above Curve Logo"
+          >
+          </img>
+        </Grid>
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <div className={styles.paper}>
             <Avatar className={styles.avatar}>
               <LockOutlinedIcon />
             </Avatar>
-            <Typography component="h1" variant="h5">
+            <Typography component="h1" variant="h4">
               Sign in
             </Typography>
             <form className={styles.form} noValidate onSubmit={this.onSubmit}>
@@ -123,21 +113,21 @@ class Login extends Component {
               />
               <Button
                 type="submit"
-                fullWidth
                 variant="contained"
                 color="primary"
                 className={styles.submit}
+                href="/welcomepage"
               >
                 Sign In
               </Button>
               <Grid container>
                 <Grid item xs>
-                  <Link href="#" variant="body2">
+                  <Link href="#" variant="body2" className={styles.linkText}>
                     Forgot password?
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link href="/register" variant="body2">
+                  <Link href="/register" variant="body2" className={styles.linkText}>
                     {"Don't have an account? Sign Up"}
                   </Link>
                 </Grid>

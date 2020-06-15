@@ -2,6 +2,7 @@
   "name": "abovecurve-client",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://127.0.0.1:5000/",
   "dependencies": {
     "@material-ui/core": "^4.10.0",
     "@material-ui/icons": "^4.9.1",
@@ -12,6 +13,7 @@
     "bcryptjs": "^2.4.3",
     "chart.js": "^2.9.3",
     "classnames": "^2.2.6",
+    "concurrently": "^5.2.0",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "cross-env": "^7.0.2",
