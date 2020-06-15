@@ -180,6 +180,7 @@ class Register extends Component {
               variant="contained"
               color="primary"
               className={styles.submit}
+              href="/welcomepage"
             >
               Sign up
             </Button>

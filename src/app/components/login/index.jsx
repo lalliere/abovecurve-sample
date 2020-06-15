@@ -116,6 +116,7 @@ class Login extends Component {
                 variant="contained"
                 color="primary"
                 className={styles.submit}
+                href="/welcomepage"
               >
                 Sign In
               </Button>

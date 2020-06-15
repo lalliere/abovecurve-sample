@@ -2,12 +2,26 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const keys = require("../../config/keys");
+const keys = require("../../../config/keys");
+const secured = require("../../../config/middleware/secured");
 // Load input validation
-const validateRegisterInput = require("../../validation/register");
-const validateLoginInput = require("../../validation/login");
+const validateRegisterInput = require("../../../validation/register");
+const validateLoginInput = require("../../../validation/login");
 // Load User model
-const User = require("../../models/User");
+const User = require("../../../models/User");
+
+/* GET user profile. */
+// eslint-disable-next-line no-unused-vars
+router.get("/user", secured(), function (req, res, next) {
+  // eslint-disable-next-line no-unused-vars
+  const { _raw, _json, ...userProfile } = req.user;
+  res.render("user", {
+    userProfile: JSON.stringify(userProfile, null, 2),
+    title: "Profile page",
+  });
+});
+
+module.exports = router;
 
 // @route POST api/users/register
 // @desc Register user

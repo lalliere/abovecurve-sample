@@ -35,6 +35,7 @@ class App extends Component {
     singleObesityChartData: this.getSkeletonObesityChartData(),
     masterObesityArray: [],
     masterSmokingArray: [],
+    currentPage: "StateView",
 
     selectedObesityState: "",
     obesityData: this.getSkeletonObesityChartData(),
@@ -121,22 +122,6 @@ class App extends Component {
   componentDidUpdate() {
     console.log(this.state);
   }
-
-  // componentDidMount = async () => {
-  //   // custom axios uses env specific base path
-  //   // LOCAL_API="http://localhost:4000"
-  //   // REACT_APP_API_URL="http://api.abovecurve.com" (production)
-  //   // REACT_APP_API_URL="http://api.abovecurve.dev" (development)
-
-  //   // Call the custom axios using the below example
-  //   const { data } = await fetchData("/ping");
-  //   this.setState({ data });
-
-  //   // Google Analytics initialization
-  //   initGA(GATRACKING);
-  //   // Trigger a Google Analytics Page View for this page (app.js)
-  //   PageView();
-  // };
 
   obesityDataFilter(location) {
     const obesityObj = this.getSkeletonObesityChartData();
@@ -245,32 +230,97 @@ class App extends Component {
       });
   }
 
+  // USLandingPage(props) {
+  //   const isLoggedIn = props.isLoggedIn;
+  //   if (isLoggedIn) {
+  //     return (
+
+  //     <Grid container spacing={3}>
+  //       <Grid item xs={12} spacing={5}>
+  //         <DeathBySexState />
+  //       </Grid>
+  //       <Grid item xs={12} spacing={5}>
+  //         <ObesityChart chartData={this.state.obesityData} />
+  //       </Grid>
+
+  //       <Grid item xs={12} spacing={3}>
+  //         <SmokingChart
+  //           pieChartData={this.state.smokingData}
+  //           selectedState={this.state.selectedState}
+  //         />
+  //       </Grid>
+  //     </Grid>)
+
+  //   }
+  //   return
+  // }
+
+renderPage = () => {
+  if (this.state.currentPage === "USView") {
+    return (
+      <Grid container spacing={3}>
+        <Grid item xs={12} spacing={5}>
+          <DeathBySexState />
+        </Grid>
+        <Grid item xs={12} spacing={5}>
+          <ObesityChart chartData={this.state.obesityData} />
+        </Grid>
+        <Grid item xs={12} spacing={3}>
+          <SmokingChart
+            pieChartData={this.state.smokingData}
+            selectedState={this.state.selectedState}
+          />
+        </Grid>
+      </Grid>)
+  } else if (this.state.currentPage === "StateView") {
+    return (          
+    <Grid item>
+      <ChartWrapper
+        // obesityChartData={this.state.singleObesityChartData}
+        setMasterSelectState={this.masterSelectState}
+      />
+    </Grid>)
+    
+  } else {
+    return "";
+  }
+}
+
+
+
+
+
+
   render() {
     return (
       <Router>
-        <Navbar />
-        <Route exact path="/" component={Landing} />
-        <Route exact path="/register" component={Register} />
-        <Route exact path="/login" component={Login} />
-        <Switch>
-          <PrivateRoute exact path="/dashboard" component={Dashboard} />
-        </Switch>
-        <WelcomePage />
-        <Grid container>
-          <Grid item>
-            <SmokingChart
-              pieChartData={this.state.smokingData}
-              selectedState={this.state.selectedState}
-            />
-            <ObesityChart chartData={this.state.obesityData} />
-            <ChartWrapper
-              obesityChartData={this.state.singleObesityChartData}
-              setMasterSelectState={this.masterSelectState}
-            />
-            <DeathBySexState />
+        <>
+          <Navbar />
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/register" component={Register} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/welcomepage" component={WelcomePage} />
+          <Switch>
+            <PrivateRoute exact path="/dashboard" component={Dashboard} />
+          </Switch>
+          {/* <this.USLandingPage isLoggedIn={true} /> */}
+          {this.renderPage()}
+          <Grid container>
+            <Grid item>
+              {/* <SmokingChart
+                pieChartData={this.state.smokingData}
+                selectedState={this.state.selectedState}
+              />
+              <ObesityChart chartData={this.state.obesityData} />
+              <ChartWrapper
+                obesityChartData={this.state.singleObesityChartData}
+                setMasterSelectState={this.masterSelectState}
+              />
+              <DeathBySexState /> */}
+            </Grid>
           </Grid>
-        </Grid>
-        <Footer />
+          <Footer />
+        </>
       </Router>
     );
   }
