@@ -149,17 +149,16 @@ export default class ChartWrapper extends React.Component {
           </Grid>
         </Grid>
 
-        <Grid containter>
-          <Grid item xs={12}>
-            <ObesityChart chartData={this.props.obesityChartData} />
-          </Grid>
-        </Grid>
-        <SmokingChart
-          pieChartData={this.props.pieChartData}
-          selectedState={this.props.selectedState}
-        />
-
-        <DeathByAgeGroup selectedLocation={this.state.selectedLocation} />
+        <div
+          style={{ display: "flex", alignItems: "baseline", maxWidth: "38%" }}
+        >
+          <ObesityChart chartData={this.props.obesityChartData} />
+          <SmokingChart
+            pieChartData={this.props.pieChartData}
+            selectedState={this.props.selectedState}
+          />
+          <DeathByAgeGroup selectedLocation={this.state.selectedLocation} />
+        </div>
       </>
     );
   }
