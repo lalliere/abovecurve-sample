@@ -17,7 +17,7 @@ import PrivateRoute from "./components/privateRoute";
 import Dashboard from "./components/dashboard";
 import Navbar from "./components/navbar";
 import About from "./components/about";
-import Sources from "./components/sources"
+import Sources from "./components/sources";
 
 // NOTE: "UA-164204874-2" Is the tracking ID for Above Curve lcoalhost
 // open this app in incognito for it to register in the GA dashboard
@@ -273,7 +273,7 @@ class App extends Component {
             alignItems="center"
             justify="center"
             style={{
-              marginBottom: "20px"
+              marginBottom: "20px",
             }}
           >
             <Grid item xs={10} spacing={5}>
