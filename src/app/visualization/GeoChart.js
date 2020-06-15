@@ -21,6 +21,7 @@ export default class GeoChart extends React.Component {
           resolution: "provinces",
           colorAxis: this.props.colorAxis,
           enableRegionInteractivity: true,
+          backgroundColor: "transparent",
         }}
         // Note: you will need to get a mapsApiKey for your project.
         // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
