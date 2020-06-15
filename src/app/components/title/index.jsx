@@ -6,7 +6,7 @@ export default function Title(props) {
     return (
         <React.Fragment>
             <CssBaseline />
-            <Typography component="h1" variant="h4" className="title" align={props.align}>
+            <Typography component="h1" variant="h3" className="title" align={props.align} style={{ marginBottom: "10px" }}>
             {props.children}
             </Typography>
         </React.Fragment>
