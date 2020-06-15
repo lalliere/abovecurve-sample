@@ -16,6 +16,7 @@ import Login from "./components/login";
 import PrivateRoute from "./components/privateRoute";
 import Dashboard from "./components/dashboard";
 import Navbar from "./components/navbar";
+import About from "./components/about";
 
 // NOTE: "UA-164204874-2" Is the tracking ID for Above Curve lcoalhost
 // open this app in incognito for it to register in the GA dashboard
@@ -274,13 +275,13 @@ class App extends Component {
               marginBottom: "20px"
             }}
           >
-            <Grid item xs={8} spacing={5}>
+            <Grid item xs={10} spacing={5}>
               <DeathBySexState />
             </Grid>
-            <Grid item xs={8} spacing={5}>
+            <Grid item xs={10} spacing={5}>
               <ObesityChart chartData={this.state.obesityData} />
             </Grid>
-            <Grid item xs={8} spacing={3}>
+            <Grid item xs={10} spacing={3} style={{ marginBottom: "70px" }}>
               <SmokingChart
                 pieChartData={this.state.smokingData}
                 selectedState={this.state.selectedState}
@@ -319,6 +320,7 @@ class App extends Component {
         <Route exact path="/" component={Landing} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/about" component={About} />
         <Route
           exact
           path="/welcomepage"
