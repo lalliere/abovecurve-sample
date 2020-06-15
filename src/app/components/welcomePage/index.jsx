@@ -47,7 +47,7 @@ export default function WelcomePage() {
       </Grid>
       <Grid container justify="center" spacing={4} className={classes.grid}>
         <Grid item auto>
-          <Card className={classes.card} data-testid="card-options">
+          <Card className={classes.card} data-testid="card-options" elevation={3}>
             <CardActionArea>
               <CardMedia
                 className={classes.media}
@@ -63,7 +63,7 @@ export default function WelcomePage() {
           </Card>
         </Grid>
         <Grid item auto>
-          <Card className={classes.card} data-testid="card-options">
+          <Card className={classes.card} data-testid="card-options" elevation={3}>
             <CardActionArea>
               <CardMedia
                 className={classes.media}
