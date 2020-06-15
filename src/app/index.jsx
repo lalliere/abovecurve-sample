@@ -294,31 +294,32 @@ renderPage = () => {
   render() {
     return (
       <Router>
-        <Navbar />
-        <Route exact path="/" component={Landing} />
-        <Route exact path="/register" component={Register} />
-        <Route exact path="/login" component={Login} />
-        <Switch>
-          <PrivateRoute exact path="/dashboard" component={Dashboard} />
-        </Switch>
-        <WelcomePage />
-        {/* <this.USLandingPage isLoggedIn={true} /> */}
-        {this.renderPage()}
-        <Grid container>
-          <Grid item>
-            {/* <SmokingChart
-              pieChartData={this.state.smokingData}
-              selectedState={this.state.selectedState}
-            />
-            <ObesityChart chartData={this.state.obesityData} />
-            <ChartWrapper
-              obesityChartData={this.state.singleObesityChartData}
-              setMasterSelectState={this.masterSelectState}
-            />
-            <DeathBySexState /> */}
+        <>
+          <Navbar />
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/register" component={Register} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/welcomepage" component={WelcomePage} />
+          <Switch>
+            <PrivateRoute exact path="/dashboard" component={Dashboard} />
+          </Switch>
+          {/* <this.USLandingPage isLoggedIn={true} /> */}
+          {this.renderPage()}
+          <Grid container>
+            <Grid item>
+              {/* <SmokingChart
+                pieChartData={this.state.smokingData}
+                selectedState={this.state.selectedState}
+              />
+              <ObesityChart chartData={this.state.obesityData} />
+              <ChartWrapper
+                obesityChartData={this.state.singleObesityChartData}
+                setMasterSelectState={this.masterSelectState}
+              />
+              <DeathBySexState /> */}
           </Grid>
-        </Grid>
-        <Footer />
+          <Footer />
+        </>
       </Router>
     );
   }

@@ -11,19 +11,20 @@ class Landing extends Component {
         <div className="row">
           <div className="col s12 center-align">
             <h1>Welcome to Above Curve</h1>
-            <p>Please either log in or register an account.</p>
+            <p>Please either log in or register and account with us.</p>
             <br />
             <div className="col s6">
-              <Button>
-                <Link to="/register" className={styles.Button}>
-                  Register
+              <Button variant="contained" size="large" justify="center">
+                <Link to="/login" className={styles.Button}>
+                  Log In
                 </Link>
               </Button>
             </div>
+            <br />
             <div className="col s6">
-              <Button>
-                <Link to="/login" className={styles.Button}>
-                  Log In
+              <Button variant="contained" size="large" justify="center">
+                <Link to="/register" className={styles.Button}>
+                  Register
                 </Link>
               </Button>
             </div>

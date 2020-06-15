@@ -7,7 +7,7 @@ const logger = require("morgan");
 const passport = require("passport");
 
 const routes = require("./routes");
-const users = require("./routes/users");
+const users = require("./routes/api/users");
 
 const app = express();
 
@@ -25,7 +25,7 @@ app.use(passport.initialize());
 // Passport config
 require("./config/passport")(passport);
 // Routes
-app.use("/users", users);
+app.use("api/users", users);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
