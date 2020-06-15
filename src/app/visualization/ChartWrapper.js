@@ -64,30 +64,6 @@ export default class ChartWrapper extends React.Component {
     this.setState({ totalDeathMapData: masterStateArr });
   }
 
-  // selectState = ({ chartWrapper }) => {
-  //   const chart = chartWrapper.getChart();
-  //   const selection = chart.getSelection();
-  //   if (!selection.length) return;
-  //   const stateData = this.state.mapData[selection[0].row + 1];
-  //   this.setState({ selectedLocation: stateData });
-  // };
-
-  // selectObesityState = ({ chartWrapper }) => {
-  //   const chart = chartWrapper.getChart();
-  //   const selection = chart.getSelection();
-  //   if (!selection.length) return;
-  //   const stateData = this.state.mapData[selection[0].row + 1];
-  //   this.props.setSelectObesityState(stateData[0]);
-  // };
-
-  // selectSmokingState = ({ chartWrapper }) => {
-  //   const chart = chartWrapper.getChart();
-  //   const selection = chart.getSelection();
-  //   if (!selection.length) return;
-  //   const stateData = this.state.mapData[selection[0].row];
-  //   this.props.setSelectSmokingState(stateData[0]);
-  // };
-
   masterSelectState = ({ chartWrapper }) => {
     const chart = chartWrapper.getChart();
     const selection = chart.getSelection();
@@ -97,61 +73,56 @@ export default class ChartWrapper extends React.Component {
     this.setState({ selectedLocation: stateData });
   };
 
-  
-
   render() {
     return (
       <>
-        <Grid container>
-          <Grid item xs={12} sm={12} md={12} lg={12}>
-            <DeathByAgeGroup selectedLocation={this.state.selectedLocation} />
+        <Grid container spacing={3} alignItems={"center"}>
+          <Grid item xs={3} spacing={3}>
+            <form>
+              <div className="form-check">
+                <label>
+                  <Radio
+                    type="radio"
+                    name="react-tips"
+                    value="option1"
+                    checked={this.state.selectedOption === "option1"}
+                    onChange={this.handleOptionChange}
+                    className="form-check-input"
+                  />
+                  Confirmed Cases
+                </label>
+              </div>
+
+              <div className="form-check">
+                <label>
+                  <Radio
+                    type="radio"
+                    name="react-tips"
+                    value="option2"
+                    checked={this.state.selectedOption === "option2"}
+                    onChange={this.handleOptionChange}
+                    className="form-check-input"
+                  />
+                  Total Tests
+                </label>
+              </div>
+
+              <div className="form-check">
+                <label>
+                  <Radio
+                    type="radio"
+                    name="react-tips"
+                    value="option3"
+                    checked={this.state.selectedOption === "option3"}
+                    onChange={this.handleOptionChange}
+                    className="form-check-input"
+                  />
+                  Total Deaths
+                </label>
+              </div>
+            </form>
           </Grid>
-
-          <form>
-            <div className="form-check">
-              <label>
-                <Radio
-                  type="radio"
-                  name="react-tips"
-                  value="option1"
-                  checked={this.state.selectedOption === "option1"}
-                  onChange={this.handleOptionChange}
-                  className="form-check-input"
-                />
-                Confirmed Cases
-              </label>
-            </div>
-
-            <div className="form-check">
-              <label>
-                <Radio
-                  type="radio"
-                  name="react-tips"
-                  value="option2"
-                  checked={this.state.selectedOption === "option2"}
-                  onChange={this.handleOptionChange}
-                  className="form-check-input"
-                />
-                Total Tests
-              </label>
-            </div>
-
-            <div className="form-check">
-              <label>
-                <Radio
-                  type="radio"
-                  name="react-tips"
-                  value="option3"
-                  checked={this.state.selectedOption === "option3"}
-                  onChange={this.handleOptionChange}
-                  className="form-check-input"
-                />
-                Total Deaths
-              </label>
-            </div>
-          </form>
-
-          <Grid item xs={12} sm={12} md={12} lg={6}>
+          <Grid item xs={9}>
             {this.state.selectedOption === "option1" ? (
               <GeoChart
                 selectState={this.masterSelectState}
@@ -175,11 +146,15 @@ export default class ChartWrapper extends React.Component {
                 colorAxis={{ colors: ["#747C92", "#52154E", "#111344"] }}
               />
             ) : null}
-            <Grid item xs={12} sm={12} md={12} lg={6}>
-              <ObesityChart chartData={this.props.obesityChartData} />
-            </Grid>
           </Grid>
         </Grid>
+        <Grid item xs={4}>
+          <DeathByAgeGroup selectedLocation={this.state.selectedLocation} />
+          {/* <ObesityChart chartData={this.props.obesityChartData} /> */}
+        </Grid>
+        <Grid item xs={4}>
+            <ObesityChart chartData={this.state.singleObesityChartData} />
+          </Grid>
       </>
     );
   }
