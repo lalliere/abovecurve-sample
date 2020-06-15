@@ -20,11 +20,7 @@ const useStyles = makeStyles((theme) => ({
         height: "10vh",
         boxShadow: "0 2px 12px 6px rgba($color: #000000, $alpha: 0.1)",
         position: "relative",
-        padding: "24px 12px",
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "space-between",
+        padding: "10px 12px",       
         zIndex: "2",
         background: "#FFFFFF",
         
@@ -63,12 +59,12 @@ export default function NavBar() {
                         container
                         spacing={4}
                     >
-                        <Grid item>
-                            <img src={logo} alt="Above Curve" data-testid="ac-footer-logo"></img>
+                        <Grid item xs={6} lg={1}>
+                            <img src={logo} alt="Above Curve"></img>
                         </Grid>
-                        <Grid item>
+                        <Grid item xs={6} lg={1} style={{ flex: 1 }}>
                             <IconButton
-                                edge="start"
+                                edge="end"
                                 className={classes.menuButton}
                                 color="inherit"
                                 aria-label="menu"
@@ -95,8 +91,9 @@ export default function NavBar() {
                                     onClose={handleClose}
                                 >
                                     <Typography  variant="h6">
-                                        <MenuItem className={classes.menuList} onClick={handleClose} component={Link} to="/country">Country View</MenuItem>
-                                        <MenuItem className={classes.menuList} onClick={handleClose} component={Link} to="/state">State View</MenuItem>
+                                        <MenuItem className={classes.menuList} onClick={handleClose} component={Link} to="/welcomepage">Home</MenuItem>
+                                        <MenuItem className={classes.menuList} onClick={handleClose} component={Link} to="/about">About</MenuItem>
+                                        <MenuItem className={classes.menuList} onClick={handleClose} component={Link} to="/sources">Data Sources</MenuItem>
                                         <MenuItem className={classes.menuList} onClick={handleClose} component={Link} to="/saved">My Saved Reports</MenuItem>
                                         <MenuItem className={classes.menuList} onClick={handleClose} component={Link} to="/logout">Logout</MenuItem>
                                     </Typography>
