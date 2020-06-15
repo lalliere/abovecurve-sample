@@ -78,9 +78,9 @@ export default class ChartWrapper extends React.Component {
     return (
       <>
         <Title align="center">Select a State</Title>
-        <Grid container alignItems={"center"}>
+        <Grid container alignItems="center">
           <Grid item lg={1}></Grid>
-          <Grid item alignContent={"flexEnd"} lg={3}>
+          <Grid item alignContent="flex-end" lg={3}>
             <form>
               <div className="form-check">
                 <label>
@@ -91,6 +91,7 @@ export default class ChartWrapper extends React.Component {
                     checked={this.state.selectedOption === "option1"}
                     onChange={this.handleOptionChange}
                     className="form-check-input"
+                    color="default"
                   />
                   Confirmed Cases
                 </label>
@@ -105,6 +106,7 @@ export default class ChartWrapper extends React.Component {
                     checked={this.state.selectedOption === "option2"}
                     onChange={this.handleOptionChange}
                     className="form-check-input"
+                    color="default"
                   />
                   Total Tests
                 </label>
@@ -119,6 +121,7 @@ export default class ChartWrapper extends React.Component {
                     checked={this.state.selectedOption === "option3"}
                     onChange={this.handleOptionChange}
                     className="form-check-input"
+                    color="default"
                   />
                   Total Deaths
                 </label>
@@ -155,9 +158,11 @@ export default class ChartWrapper extends React.Component {
         <div
           style={{
             display: "flex",
-            alignItems: "baseline",
+            alignItems: "flex-start",
             maxWidth: "38%",
-            marginBottom: "20px",
+            marginBottom: "80px",
+            marginTop: "60px",
+            marginLeft: "20px",
           }}
         >
           <ObesityChart chartData={this.props.obesityChartData} />
