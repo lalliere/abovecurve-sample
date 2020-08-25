@@ -7,7 +7,6 @@ import DeathByAgeGroup from "./DeathByAgeGroup";
 import Radio from "@material-ui/core/Radio";
 import SmokingChart from "./SmokingChart";
 import Title from "../components/title/index";
-//import
 
 export default class ChartWrapper extends React.Component {
   constructor(props) {
