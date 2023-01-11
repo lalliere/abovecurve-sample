@@ -20,7 +20,7 @@
     "d3": "^5.16.0",
     "dotenv": "^8.2.0",
     "is-empty": "^1.2.0",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "jwt-decode": "^2.2.0",
     "morgan": "^1.10.0",
     "node-sass": "^4.14.1",
